@@ -1,11 +1,22 @@
-
 services:
   server:
-    # ###
-    # 다음 주석을 지우고 compose 를 완성하자
-    # ###
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
 
   client:
-    # ###
-    # 다음 주석을 지우고 compose 를 완성하자
-    # ###
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    depends_on:
+      - server
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
