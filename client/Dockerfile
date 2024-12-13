@@ -1,7 +1,14 @@
 FROM python:3.10-slim
 
-# ###
-#
-# 다음 주석을 지우고 docker 파일을 완성하자.
-#
-# ###
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements file and install dependencies
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY . ./
+
+# Command to run the client script
+CMD ["python", "run_client.py"]

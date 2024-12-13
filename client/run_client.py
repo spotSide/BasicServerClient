@@ -3,7 +3,9 @@ import psutil
 from time import sleep
 
 TARGET_IP = "127.0.0.1"
+# TARGET_IP = "localhost"
 API_URL = f"http://{TARGET_IP}:8000/cpu-monitor"
+# API_URL = f"http://{TARGET_IP}:8000/"
 
 while True:
     sleep(2)
